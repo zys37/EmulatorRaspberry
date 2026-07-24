@@ -1,0 +1,9 @@
+# CLion / IntelliJ
+.idea/
+cmake-build-*/
+
+# Build directories
+build/
+out/
+bin/
+roms/*.gb
