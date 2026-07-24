@@ -18,6 +18,4 @@ private:
     std::array<uint8_t, 65536> memory;
 };
 
-
-
 #endif //MMU_H
