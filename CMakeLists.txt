@@ -5,5 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(emulator src/main.cpp
         src/MMU.cpp
-        include/MMU.h)
+        include/MMU.h
+        src/CPU.cpp
+        include/CPU.h)
 target_include_directories(emulator PRIVATE include)
