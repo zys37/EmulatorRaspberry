@@ -16,7 +16,7 @@ union Register {
 
 class CPU {
 public:
-    CPU(MMU& mmu)
+    CPU(MMU& mmu);
     void step();
 private:
     MMU& mmu;
