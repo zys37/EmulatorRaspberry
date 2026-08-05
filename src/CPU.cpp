@@ -62,7 +62,22 @@ void CPU::step() {
             break;
         }
         case 0xC8: {
-            uint8_t z = mmu.read_byte(PC);
+            if (AF.lo & (1<<7)) {
+                uint8_t lo = mmu.read_byte(SP);
+                SP++;
+                uint8_t hi = mmu.read_byte(SP);
+                SP++;
+                uint16_t returnAddress = (hi << 8) | lo;
+                PC = returnAddress;
+            }
+            break;
+        }
+        case 0xE0: {
+            uint8_t a8 = mmu.read_byte(PC);
+            PC++;
+            uint16_t address = 0xFF00 + a8;
+            mmu.write_byte(address, AF.hi);
+            break;
         }
 
         }
